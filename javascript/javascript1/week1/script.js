@@ -2,7 +2,7 @@
 const yearOfBirth = 1986;
 const yearFuture = 2027;
 const age = yearFuture - yearOfBirth;
-console.log("You will be " + age + " years old in " + yearFuture);
+console.log(`You will be ${age} years old in ${yearFuture}`);
 
 //2. Goodboy-Oldboy (A dog age calculator)
 const dogYearOfBirth = 2017;
@@ -15,7 +15,6 @@ if (shouldShowResultInDogYears) {
    dogYear *= 7;
 } else {
    yearType = "human years";
-   dogYear;
 }
 console.log ("Your dog will be " + dogYear + " " + yearType + " old in " + dogYearFuture)
 
@@ -34,7 +33,6 @@ if (priceHouseAdPeter > housePricePeter) {
    housePricePeter;
 } else {
    payResult = "little";
-   housePricePeter;
 }
 console.log (`The real price for this house is ${housePricePeter}. You will pay too ${payResult} for this house.`)
 
@@ -51,13 +49,12 @@ if (priceHouseAdJulia > housePriceJulia) {
    housePriceJulia;
 } else {
    payResult = "little";
-   housePriceJulia;
 }
 console.log (`The real price for this house is ${housePriceJulia}. You will pay too ${payResult} for this house.`)
 
 //4. Ez Namey (Startup name generator)
-const firstWords = ["Easy", "Awesome", "Corporate", "Innovative", "Global", "Tech", "Bright", "NexGen", "Smart", "Fusion"]
-const secondWords = ["Solutions", "Hub", "Labs", "Forge", "Wave", "Space", "Works", "Growth", "Edge", "Pulse"]
+const firstWords = ["Easy", "Awesome", "Corporate", "Innovative", "Global", "Tech", "Bright", "NexGen", "Smart", "Fusion"];
+const secondWords = ["Solutions", "Hub", "Labs", "Forge", "Wave", "Space", "Works", "Growth", "Edge", "Pulse"];
 const randomNumber = Math.floor(Math.random() * 10);
 const nameStartup = firstWords[randomNumber] + " " + secondWords[randomNumber];
 const lengthNameStartup = nameStartup.length - 1;
