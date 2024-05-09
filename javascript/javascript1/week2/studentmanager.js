@@ -27,4 +27,7 @@ function addStudentToClass(studentName) {
 function getNumberOfStudents() {
   return class07Students.length;
 }
+addStudentToClass('Queen');
+addStudentToClass('Maricel');
+addStudentToClass('Olha')
 getNumberOfStudents()

@@ -10,15 +10,33 @@ const arrCandyPrice = [
 
 // Function to add candy with its type and weight
 function addCandy(candyType, weight) {
-  boughtCandyPrices.push({ candyType, weight });
-  for (let i = 0; i < boughtCandyPrices.length; i++) {
-    for (let j = 0; j < arrCandyPrice.length; j++) {
-      if (boughtCandyPrices[i].candyType === arrCandyPrice[j].candyType) {
-        boughtCandyPrices[i].candyPrice =
-          boughtCandyPrices[i].weight * arrCandyPrice[j].price;
-      }
-    }
+  
+  // Find the candy price object once, avoiding a nested loop
+  // 1. First version
+  // let candyPriceInfo;
+  // for (let j = 0; j < arrCandyPrice.length; j++) {
+  //   if (arrCandyPrice[j].candyType === candyType) {
+  //     candyPriceInfo = arrCandyPrice[j];
+  //   }
+  // }
+  // 2. Second version
+  let candyPriceInfo = arrCandyPrice.find(candy => candy.candyType === candyType);
+    
+  // If the candy type exists in the price array, compute and push the new entry
+  if (candyPriceInfo) {
+    const candyPrice = weight * candyPriceInfo.price;
+    boughtCandyPrices.push({ candyType, weight, candyPrice });
   }
+
+  // boughtCandyPrices.push({ candyType, weight });
+  // for (let i = 0; i < boughtCandyPrices.length; i++) {
+  //   for (let j = 0; j < arrCandyPrice.length; j++) {
+  //     if (boughtCandyPrices[i].candyType === arrCandyPrice[j].candyType) {
+  //       boughtCandyPrices[i].candyPrice =
+  //         boughtCandyPrices[i].weight * arrCandyPrice[j].price;
+  //     }
+  //   }
+  // }
 }
 
 addCandy("sweet", 10);
@@ -40,11 +58,11 @@ function canBuyMoreCandy() {
    i++;
   }
   console.log(`The total price of candy purchased ${totalPrice}`);
-  if (amountToSpend < totalPrice) {
+  if (amountToSpend <= totalPrice) {
     console.log("Enough candy for you!");
   } else {
     console.log("You can buy more, so please do!");
   }
 }
-
 canBuyMoreCandy();
+
