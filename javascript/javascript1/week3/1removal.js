@@ -13,16 +13,10 @@ const names = [
  ];
  const nameToRemove = "Ahmad";
  function removeItem(arr) {
-   // Loop through the array
-   for (let i = 0; i < arr.length; i++) {
-     // Check if the current item is equal to the item to be removed
-     if (nameToRemove === arr[i]) {
-       arr.splice (i, 1) // Remove the item from the array
-     }
-   }
-   return arr
+  const newArr = arr.filter(name => name !== nameToRemove)
+  return newArr
  }
 
  // Call the function to remove the item
-removeItem(names)
-console.log(names); // ['Peter', 'Yana', 'Kristina', 'Rasmus', 'Samuel', 'Katrine', 'Tala']
+const newNames = removeItem(names)
+console.log(newNames); // ['Peter', 'Yana', 'Kristina', 'Rasmus', 'Samuel', 'Katrine', 'Tala']
