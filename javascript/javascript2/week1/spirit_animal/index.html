@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Spirit animal</title>
+   <style>
+      .form {
+         margin: 30px 0;
+      }
+      .result {
+         width: 400px;
+         height: 18px;
+         border: 2px solid grey;
+         border-radius: 5px;
+      }
+   </style>
+</head>
+<body>
+   <main>
+
+      <form class="form">
+         <label for="username">Name:</label>
+         <input id="username" type="text" name="username">
+      </form>
+
+      <form class="form" id="formRadio">
+         How do you prefer when the spirit animal should be created?<br>
+         <input type="radio" name="createSpiritAnimal" id="click" class="radio" value="btnClick">Click the button<br>
+         <input type="radio" name="createSpiritAnimal" id="hover" class="radio" value="hoverInput">Hover the input field<br>
+         <input type="radio" name="createSpiritAnimal" id="write" class="radio" value="textInput">Write the text in the input field<br>
+      </form>  
+
+      <div>
+         <p>Your spirit animal name:</p>
+         <p id="result" class="result"></p>
+         <button type="button" id="btnSpiritAnimal">Get a spirit animal name</button>
+      </div>
+      <div>
+         <p>Your new spirit animal name:</p>
+         <p id="result2" class="result"></p>
+         <button type="button" id="btnNewSpiritAnimal">Get a new spirit animal name</button>
+      </div>     
+   </main>
+   <script src="script.js"></script>
+</body>
+</html>
