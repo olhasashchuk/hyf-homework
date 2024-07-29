@@ -22,16 +22,8 @@ CREATE INDEX idx_name ON student (name);
 
 -- Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations).
 
-CREATE TABLE `status` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Statuses
-insert into status (id, name) values (1, 'not-started');
-insert into status (id, name) values (2, 'ongoing');
-insert into status (id, name) values (3, 'finished');
+ALTER TABLE `class`
+ADD COLUMN `status` ENUM('not-started', 'ongoing', 'finished') NOT NULL DEFAULT 'not-started';
 
 ALTER TABLE class
 ADD `status_id` int(10) unsigned;

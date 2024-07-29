@@ -19,8 +19,8 @@ where id = 36;
 
 --Mark a task as complete
 UPDATE task
-set status_id = 3
-where id = 36;
+SET status_id = (SELECT id FROM status WHERE name = 'Done')
+WHERE id = 36;
 
 --Delete a task
 DELETE FROM task 
