@@ -1,5 +1,4 @@
 import express from 'express'
-// import documents from './documents.json' assert { type: "json" };
 import fs from 'fs';
 
 const app = express();
@@ -22,15 +21,18 @@ app.listen(port, () => {
 
 ///search?q=hello
 
+function getFilterDocuments(lowerCaseQuery) {
+  return documents.filter(doc => {
+    return Object.values(doc).some(value => {
+      if (typeof value !== 'string') return false;
+      return value.toLowerCase().includes(lowerCaseQuery);
+    });
+  });
+}
+
 function searchDocuments(documents, query) {
-   const lowerCaseQuery = query.toLowerCase();
- 
-   return documents.filter(doc => {
-     return Object.values(doc).some(value => {
-       if (typeof value !== 'string') return false;
-       return value.toLowerCase().includes(lowerCaseQuery);
-     });
-   });
+  const lowerCaseQuery = query.toLowerCase();
+  return getFilterDocuments(lowerCaseQuery)
  }
  
  app.get("/search", (req, res) => {
@@ -64,11 +66,7 @@ function searchDocumentsPost(documents, query = null, fields = null) {
    }
    if (query) {
      const lowerCaseQuery = query.toLowerCase();
-     return documents.filter(doc =>
-       Object.values(doc).some(value =>
-         typeof value === 'string' && value.toLowerCase().includes(lowerCaseQuery)
-       )
-     );
+     return getFilterDocuments(lowerCaseQuery)
    }
    return documents;
  }
